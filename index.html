@@ -11,27 +11,26 @@
     />
     <meta name="author" content="_YOUR_NAME_" />
     <link rel="stylesheet" href="/style.css" />
-    <!-- TODO: Import Javascript -->
-    <title>_REPLACE_SITE_NAME</title>
+    <script src="main.js" defer></script>
+    <title>Pokemon API</title>
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
   </head>
   <body class="animate__animated animate__fadeIn">
     <header class="l-header">
-      <h1>Home</h1>
+      <img class="pokemon-header" src="src/Images/Pokemon Titlecard.png" alt="">
     </header>
 
-    <main class="l-main">
-      <section role="search"></section>
-
-      <article role="doc-introduction">
-        <h2>List</h2>
-
-        <p>_REPLACE_INTRODUCTION_</p>
-      </article>
-
-      <section role="list">
-        <div id="js-list-container">_LOADING_INDICATOR_GOES_HERE_</div>
-      </section>
-    </main>
+    <main>
+      <div class="searchbox">
+        <input id="pokemonName" type="text" placeholder="Pokemon Name">
+        <div class="center">
+          <button id="search">Search</button>
+        </div>
+      </div>
+      <div class="pokemonBox">
+          
+      </div>
+  </main>
 
     <footer class="l-footer">
       <small>Created with ❤️ by _REPLACE_</small>
