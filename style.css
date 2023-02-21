@@ -1,13 +1,199 @@
 /* the props */
 @import "open-props/style";
 
-/* optional imports that use the props */
-@import "open-props/normalize";
-@import "animate.css";
 
-@import "src/css/variables.css";
-@import "src/css/reset.css";
-@import "src/css/utilities.css";
-@import "src/css/layout.css";
-@import "src/css/form.css";
-@import "src/css/ui.css";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: rgb(13, 66, 191);
+    color: #fff;
+  } 
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  
+  p {
+    margin-bottom: 0.5rem;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .pokemon-header {
+  width: 500px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+  
+  .l-header,
+  .l-footer {
+    background-color: rgb(13, 66, 191);
+    color: #fff;
+  }
+  
+  .l-header h1,
+  .l-footer small {
+    text-align: center;
+  }
+  
+  .main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .searchbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .searchbox input {
+    flex: 1;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .searchbox button {
+    padding: 0.25rem 0.5rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    width: 80px;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+  }
+  
+  .pokemonBox {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .details-button {
+    display: inline-block;
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    -webkit-text-stroke: 2.2px #0b3193;
+    color: #ffd117;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Pokemon Solid', sans-serif;
+  }
+  
+  .details-button:hover {
+    -webkit-text-stroke: 2.2px #ffd117;
+    color: #1c51d5;
+  }
+
+/* Type */
+.water, .fire, .normal, .electric, .grass, .ice, .fighting, .poison, .ground, .flying, .psychic, .bug, .rock, .ghost, .dragon, .dark, .steel, .fairy {
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 3px 8px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.grass {
+  background-color: #7AC74C;
+}
+
+.fire {
+  background-color: #EE8130;
+}
+
+.water {
+  background-color: #6390F0;
+}
+
+.normal {
+  background-color: #A8A77A;
+}
+
+.bug {
+  background-color: #A6B91A;
+}
+
+.electric {
+  background-color: #F7D02C;
+}
+
+.ice {
+  background-color: #96D9D6;
+}
+
+.fighting {
+  background-color: #C22E28;
+}
+
+.poison {
+  background-color: #A33EA1;
+}
+
+.ground {
+  background-color: #E2BF65;
+}
+
+.flying {
+  background-color: #A98FF3;
+}
+
+.psychic {
+  background-color: #F95587;
+}
+
+.bug {
+  background-color: #A6B91A;
+}
+
+.rock {
+  background-color: #B6A136;
+}
+
+.ghost {
+  background-color: #735797;
+}
+
+.dragon {
+  background-color: #6F35FC;
+}
+
+.dark {
+  background-color: #705746;
+}
+
+.steel {
+  background-color: #B7B7CE;
+}
+
+.fairy {
+  background-color: #D685AD;
+}
+
