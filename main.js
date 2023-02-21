@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         />
       </div>
       <div class="pokemonInfo">
-        <h1>${capitalizeFirstLetter(pokemon.name)}</h1>
+        <a href="details.html" class="details-button" data-url="${pokemon.url}">${capitalizeFirstLetter(pokemon.name)}</a>
         <p class="${pokemon.types[0].type.name}"> ${capitalizeFirstLetter(pokemon.types[0].type.name)}</p>
         <p>Attack: ${pokemon.stats[2].base_stat}</p>
         <p>Defense: ${pokemon.stats[3].base_stat}</p>
@@ -55,9 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
         <img 
           src="${pokemon.sprites.back_default}"
         />
-        <a href="details.html" class="details-button" data-url="${pokemon.url}">
-          Learn More
-        </a>
       </div>
     `;
   
