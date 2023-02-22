@@ -1,48 +1,43 @@
+const queryString = document.location.search
+const params = new URLSearchParams(queryString)
+const pokemonName = params.get("name")
+console.log(pokemonName)
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
-/*
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L66
-============================================
-*/
+const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+  
+async function getPokemonDetails() {
+    try {
+      const response = await fetch(url);
+      const pokemon = await response.json();
+  
+      const pokemonDetailsHTML = document.createElement("div");
+      pokemonDetailsHTML.innerHTML = `
+        <div>
+          <img src="${pokemon.sprites.other["official-artwork"].front_default}" />
+        </div>
+        <div class="pokemonInfo">
+          <a href="details.html?name=${pokemon.name}" class="details-button" data-url="${pokemon.url}">
+            ${capitalizeFirstLetter(pokemon.name)}
+          </a>
+          <p class="${pokemon.types[0].type.name}">${capitalizeFirstLetter(pokemon.types[0].type.name)}</p>
+          <p>Attack ${pokemon.stats[2].base_stat}</p>
+          <p>Defense ${pokemon.stats[3].base_stat}</p>
+          <p>Speed ${pokemon.stats[5].base_stat}</p>
+          <img src="${pokemon.sprites.front_default}" />
+          <img src="${pokemon.sprites.back_default}" />
+        </div>
+      `;
+  
+      const pokemonDetailsContainer = document.getElementById("pokemon-details-container");
+      pokemonDetailsContainer.appendChild(pokemonDetailsHTML);
+  
+    } catch(error) {
+      console.log(error)
+    }
+  }
 
-// TODO: Get DOM elements from the DOM
-
-// TODO: Get the query parameter from the URL
-
-// TODO: Get the id from the query parameter
-
-// TODO: Create a new URL with the id @example: https://www.youtube.com/shorts/ps7EkRaRMzs
-
-/*
-============================================
-DOM manipulation
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L89
-============================================
-*/
-
-// TODO: Fetch and Render the lsit to the DOM
-
-// TODO: Create event listeners for the filters and the search
-
-/*
-============================================
-Data fectching
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L104
-============================================
-*/
-
-// TODO: Fetch an a single of objects from the API
-
-/*
-============================================
-Helper functions
-============================================
-*/
-
-/**
- * TODO: Create a function to create a DOM element.
- * @example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/src/js/detail.js#L36
- * @param {item} item The object with properties from the fetched JSON data.
- */
+getPokemonDetails() 

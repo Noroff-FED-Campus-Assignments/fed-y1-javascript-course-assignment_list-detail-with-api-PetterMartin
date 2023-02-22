@@ -3,26 +3,22 @@ document.addEventListener("DOMContentLoaded", function() {
     getPokemon("");
   });
   
-  function getPokemon(searchTerm) {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=251`)
-      .then((response) => response.json())
-      .then((data) => {
-        const filteredResults = data.results.filter((result) => {
-          const resultName = lowerCaseName(result.name);
-          return resultName.includes(searchTerm);
-        });
+  async function getPokemon(searchTerm) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=251`);
+    const data = await response.json();
   
-        filteredResults.forEach((result) => {
-          fetch(result.url)
-            .then((response) => response.json())
-            .then((pokemon) => {
-              displayPokemon(pokemon);
-            });
-        });
-      })
-      .catch((error) => {
-        console.log('Pokemon not found', error);
-      });
+    const filteredResults = data.results.filter((result) => {
+      const resultName = lowerCaseName(result.name);
+      return resultName.includes(searchTerm);
+    });
+  
+    let array = filteredResults.map(async (result) => {
+      const res = await fetch(result.url);
+      const pokemon = await res.json();
+      return displayPokemon(pokemon);
+    });
+    const pokemonBox = document.querySelector(".pokemonBox");
+    Promise.all(array).then((results) => pokemonBox.append(...results));
   }
   
   function capitalizeFirstLetter(string) {
@@ -34,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   
   function displayPokemon(pokemon) {
-    const pokemonBox = document.querySelector(".pokemonBox");
     const pokemonElement = document.createElement("div");
   
     pokemonElement.innerHTML = `
@@ -44,11 +39,11 @@ document.addEventListener("DOMContentLoaded", function() {
         />
       </div>
       <div class="pokemonInfo">
-        <a href="details.html" class="details-button" data-url="${pokemon.url}">${capitalizeFirstLetter(pokemon.name)}</a>
+        <a href="details.html?name=${pokemon.name}" class="details-button" data-url="${pokemon.url}">${capitalizeFirstLetter(pokemon.name)}</a>
         <p class="${pokemon.types[0].type.name}"> ${capitalizeFirstLetter(pokemon.types[0].type.name)}</p>
-        <p>Attack: ${pokemon.stats[2].base_stat}</p>
-        <p>Defense: ${pokemon.stats[3].base_stat}</p>
-        <p>Speed: ${pokemon.stats[5].base_stat}</p>
+        <p>Attack ${pokemon.stats[2].base_stat}</p>
+        <p>Defense ${pokemon.stats[3].base_stat}</p>
+        <p>Speed ${pokemon.stats[5].base_stat}</p>
         <img 
           src="${pokemon.sprites.front_default}"
         />
@@ -58,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
       </div>
     `;
   
-    pokemonBox.appendChild(pokemonElement);
+    return pokemonElement;
   }
   
   document.querySelector("#search").addEventListener("click", function(event) {
