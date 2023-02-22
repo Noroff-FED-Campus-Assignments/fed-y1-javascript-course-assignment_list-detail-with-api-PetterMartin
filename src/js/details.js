@@ -32,7 +32,7 @@ async function getPokemonDetails() {
         </div>
       `;
   
-      const pokemonDetailsContainer = document.getElementById("pokemon-details-container");
+      const pokemonDetailsContainer = document.getElementById("pokemonDetails");
       pokemonDetailsContainer.appendChild(pokemonDetailsHTML);
   
     } catch(error) {
