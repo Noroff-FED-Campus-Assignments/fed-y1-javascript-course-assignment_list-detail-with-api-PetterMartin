@@ -1,30 +1,51 @@
-/*
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L50
-============================================
-*/
-
-// TODO: Get DOM elements from the DOM
-
-// TODO: Create event listeners for the form
-
-/*
-============================================
-API calls
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L157
-============================================
-*/
-
-// TODO: Set up a function to fetch data from the API
-
-/*
-============================================
-Helper functions
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L118
-============================================
-*/
-
-// TODO: Create a function to validate an input field
-
-// TODO: Create a function to create a DOM element
+function validateForm() {
+    const name = document.getElementById("name").value;
+    const subject = document.getElementById("subject").value;
+    const email = document.getElementById("email").value;
+    const address = document.getElementById("address").value;
+  
+    let valid = true;
+    if (name === "") {
+      valid = false;
+      alert("Please enter your name.");
+    }
+    if (subject.length < 10) {
+      valid = false;
+      alert("Subject must be at least 10 characters long.");
+    }
+    if (!validateEmail(email)) {
+      valid = false;
+      alert("Please enter a valid email address.");
+    }
+    if (address.length < 25) {
+      valid = false;
+      alert("Address must be at least 25 characters long.");
+    }
+  
+    return valid;
+  }
+  
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  }
+  
+  const form = document.getElementById("myForm");
+  
+  // Add an event listener to the form submit event
+  form.addEventListener("submit", function(event) {
+    // Prevent the form from submitting by default
+    event.preventDefault();
+  
+    // Call the validateForm function and check its return value
+    if (validateForm()) {
+      // If the form is valid, add a message and submit the form
+      const message = document.createElement("p");
+      message.textContent = "Form passed validation!";
+      form.insertAdjacentElement("beforebegin", message);
+      form.reset();
+    }
+  });
+  
+  
+  

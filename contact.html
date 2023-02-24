@@ -11,25 +11,38 @@
     />
     <meta name="author" content="_YOUR_NAME_" />
     <link rel="stylesheet" href="/style.css" />
-    <!-- TODO: Import Javascript -->
-    <title>Contact Us | _REPLACE_SITE_NAME</title>
+    <script src="./src/js/contact.js" defer></script>
+    <title>Pokemon Contact Site</title>
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
   </head>
   <body class="animate__animated animate__fadeIn">
-    <header class="l-header">
-      <h1>Contact Us</h1>
+    <header class="c-header">
+      <h1>ContacT Us</h1>
     </header>
 
     <main class="l-main">
-      <article role="doc-introduction">
-        <h2>Contact form</h2>
-
-        <p>_REPLACE_INTRODUCTION_</p>
-      </article>
-
-      <section role="form-section">
-        <!-- TODO: Creat Form elements here -->
+    
+      <section class="form-section" role="form-section">
+        <form id="myForm">
+          <label class="form-label" for="name">Name:</label>
+          <input class="form-input" type="text" id="name" name="name" required>
+        
+          <label class="form-label" for="email">Email:</label>
+          <input class="form-input" type="email" id="email" name="email" required>
+        
+          <label class="form-label" for="address">Address:</label>
+          <input class="form-input" type="text" id="address" name="address" minlength="25">
+        
+          <label class="form-label" for="subject">Subject:</label>
+          <input class="form-input form-input-subject" type="text" id="subject" name="subject" minlength="10">
+        
+          <input class="form-submit" type="submit" value="Submit">
+        </form>
+        <p id="validation-message"></p>
       </section>
+
     </main>
+    
 
     <footer class="l-footer">
       <small>Created with ❤️ by _REPLACE_</small>
