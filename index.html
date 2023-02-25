@@ -20,13 +20,11 @@
   </head>
   
   <body class="animate__animated animate__fadeIn">
-    <header class="l-header">
+
+    <main>
       <a href="/">
         <img class="pokemon-header" src="src/Images/Pokemon Titlecard.png" alt="">
       </a>
-    </header>
-
-    <main>
       <div class="searchbox">
         <input id="pokemonName" type="text" placeholder="Pokemon Name">
         <select id="pokemonType">
@@ -48,18 +46,20 @@
           <option value="dark">Dark</option>
           <option value="steel">Steel</option>
         </select>
+        <select id="sortOrder" class="sort-select">
+            <option value="">Sort By Name</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+          </select>
         <div class="center">
           <button id="search" type="button">Search</button>
         </div>
       </div>
 
-      <div class="pokemonBox">       
-      </div>
+      <div class="pokemonBox"></div>
 
     </main>
 
-    <footer class="l-footer">
-      <small>Created with ❤️ by _REPLACE_</small>
-    </footer>
+
   </body>
 </html>

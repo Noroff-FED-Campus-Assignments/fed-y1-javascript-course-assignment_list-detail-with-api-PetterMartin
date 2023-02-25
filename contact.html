@@ -17,13 +17,15 @@
   </head>
   <body class="animate__animated animate__fadeIn">
     <header class="c-header">
-      <h1>ContacT Us</h1>
+      <a href="contact.html">
+        <h1>Contact Us</h1>
+      </a>
     </header>
 
     <main class="l-main">
     
       <section class="form-section" role="form-section">
-        <form id="myForm">
+        <form id="myForm" autocomplete="on">
           <label class="form-label" for="name">Name:</label>
           <input class="form-input" type="text" id="name" name="name" required>
         
@@ -38,7 +40,7 @@
         
           <input class="form-submit" type="submit" value="Submit">
         </form>
-        <p id="validation-message"></p>
+        <div id="message"></div>
       </section>
 
     </main>

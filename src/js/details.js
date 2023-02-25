@@ -1,18 +1,24 @@
-const queryString = document.location.search
-const params = new URLSearchParams(queryString)
-const pokemonName = params.get("name")
-console.log(pokemonName)
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+const pokemonName = params.get("name");
+console.log(pokemonName);
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
 
 async function getPokemonDetails() {
   try {
     const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Pokemon not found!");
+    }
     const pokemon = await response.json();
+
+    // Set the title of the page with the name of the current Pokemon
+    document.title = `${capitalizeFirstLetter(pokemon.name)} - Pokemon Details`;
 
     const pokemonDetailsHTML = document.createElement("div");
     pokemonDetailsHTML.innerHTML = `
@@ -62,9 +68,13 @@ async function getPokemonDetails() {
     pokemonDetailsContainer.appendChild(pokemonDetailsHTML);
 
   } catch(error) {
-    console.log(error)
+    const errorMessage = document.createElement("div");
+    errorMessage.innerHTML = `
+      <div class="error-message">${error.message}</div>
+    `;
+    const pokemonDetailsContainer = document.getElementById("pokemonDetails");
+    pokemonDetailsContainer.appendChild(errorMessage);
   }
 }
-
 
 getPokemonDetails();
