@@ -4,35 +4,55 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="_REPLACE_WITH_DESCRIPTION_" />
+    <meta name="description" content="Contact Page for Pokedex" />
     <meta
       name="keywords"
       content="HTML, CSS, JavaScript, _REPLACE_WITH_KEYWORD_"
     />
     <meta name="author" content="_YOUR_NAME_" />
     <link rel="stylesheet" href="/style.css" />
-    <!-- TODO: Import Javascript -->
-    <title>Contact Us | _REPLACE_SITE_NAME</title>
+    <script src="./src/js/contact.js" type="module" defer></script>
+    <title>Pokemon Contact Site</title>
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
   </head>
   <body class="animate__animated animate__fadeIn">
-    <header class="l-header">
-      <h1>Contact Us</h1>
+    <div class="loader"></div>
+    
+    <header>
+      <a href="/" class="header-container">
+        <img src="/src/Images/PokeDex-Logo.png" alt="Pokedex logo that spells Pokedex" class="pokemon-header">
+        <img src="/src/Images/PokeDex Icon.png" alt="Red Pokedex Icon" class="pokedex-icon">
+      </a>
+      <a href="contact.html">
+        <h1 class="contact-header">Contact Us</h1>
+      </a>
     </header>
 
     <main class="l-main">
-      <article role="doc-introduction">
-        <h2>Contact form</h2>
-
-        <p>_REPLACE_INTRODUCTION_</p>
-      </article>
-
-      <section role="form-section">
-        <!-- TODO: Creat Form elements here -->
+    
+      <section class="form-section" role="form-section">
+        <form id="myForm" autocomplete="on">
+          <label class="form-label" for="name">Name:</label>
+          <input class="form-input" type="text" id="name" name="name" required>
+        
+          <label class="form-label" for="email">Email:</label>
+          <input class="form-input" type="email" id="email" name="email" required>
+        
+          <label class="form-label" for="address">Address:</label>
+          <input class="form-input" type="text" id="address" name="address" minlength="25">
+        
+          <label class="form-label" for="subject">Subject:</label>
+          <input class="form-input form-input-subject" type="text" id="subject" name="subject" minlength="10">
+        
+          <input class="form-submit" type="submit" value="Submit">
+          <div id="message" ></div>
+        </form>
       </section>
+
     </main>
+    
 
     <footer class="l-footer">
-      <small>Created with ❤️ by _REPLACE_</small>
     </footer>
   </body>
 </html>

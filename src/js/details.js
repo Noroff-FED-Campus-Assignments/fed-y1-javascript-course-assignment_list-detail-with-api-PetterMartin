@@ -1,46 +1,89 @@
-/*
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L66
-============================================
-*/
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
 
-// TODO: Get DOM elements from the DOM
+  loader.classList.add("loader--hidden");
 
-// TODO: Get the query parameter from the URL
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild(loader);
+  });
+});
 
-// TODO: Get the id from the query parameter
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+const pokemonName = params.get("name");
+console.log(pokemonName);
 
-// TODO: Create a new URL with the id @example: https://www.youtube.com/shorts/ps7EkRaRMzs
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-/*
-============================================
-DOM manipulation
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L89
-============================================
-*/
+const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
 
-// TODO: Fetch and Render the lsit to the DOM
+async function getPokemonDetails() {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Pokemon not found!");
+    }
+    const pokemon = await response.json();
 
-// TODO: Create event listeners for the filters and the search
+    document.title = `${capitalizeFirstLetter(pokemon.name)} - Pokemon Details`;
 
-/*
-============================================
-Data fectching
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L104
-============================================
-*/
+    const pokemonDetailsHTML = document.createElement("div");
+    pokemonDetailsHTML.innerHTML = `
+    <div class="pokemon-container ${pokemon.types[0].type.name}">
+    <div class="pokemon-image">
+      <img src="${pokemon.sprites.other["official-artwork"].front_default}" />
+      <div class="pokemon-name">${capitalizeFirstLetter(pokemon.name)}</div> 
+    </div>
+    <div class="pokemon-details">
+      <div class="stats-container">
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-value">${pokemon.weight / 10} kg</div>
+            <div class="stat-label">WEIGHT</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">${pokemon.height / 10} m</div>
+            <div class="stat-label">HEIGHT</div>
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-value">${capitalizeFirstLetter(pokemon.types[0].type.name)}</div>
+            <div class="stat-label">TYPE</div>
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-value">${pokemon.stats[1].base_stat}</div>
+            <div class="stat-label">ATTACK</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">${pokemon.stats[2].base_stat}</div>
+            <div class="stat-label">DEFENCE</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">${pokemon.stats[5].base_stat}</div>
+            <div class="stat-label">SPEED</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    `;
 
-// TODO: Fetch an a single of objects from the API
+    const pokemonDetailsContainer = document.getElementById("pokemonDetails");
+    pokemonDetailsContainer.appendChild(pokemonDetailsHTML);
 
-/*
-============================================
-Helper functions
-============================================
-*/
+  } catch(error) {
+    const errorMessage = document.createElement("div");
+    errorMessage.innerHTML = `
+      <div class="error-message">${error.message}</div>
+    `;
+    const pokemonDetailsContainer = document.getElementById("pokemonDetails");
+    pokemonDetailsContainer.appendChild(errorMessage);
+  }
+}
 
-/**
- * TODO: Create a function to create a DOM element.
- * @example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/src/js/detail.js#L36
- * @param {item} item The object with properties from the fetched JSON data.
- */
+getPokemonDetails();

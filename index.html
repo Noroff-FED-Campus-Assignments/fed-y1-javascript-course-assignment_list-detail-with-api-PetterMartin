@@ -4,37 +4,79 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="_REPLACE_WITH_DESCRIPTION_" />
+    <meta name="description" content="Pokedex. Search for a Pokémon by name or type!" />
     <meta
       name="keywords"
       content="HTML, CSS, JavaScript, _REPLACE_WITH_KEYWORD_"
     />
-    <meta name="author" content="_YOUR_NAME_" />
+    <meta name="author" content="Petter" />
     <link rel="stylesheet" href="/style.css" />
-    <!-- TODO: Import Javascript -->
-    <title>_REPLACE_SITE_NAME</title>
+    <script src="main.js" type="module" defer></script>
+    <title>Pokemon API</title>
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
   </head>
+  
   <body class="animate__animated animate__fadeIn">
-    <header class="l-header">
-      <h1>Home</h1>
+    <div class="loader"></div>
+
+    <header>
+      <a href="/" class="header-container">
+        <img src="/src/Images/PokeDex-Logo.png" alt="Pokedex logo that spells Pokedex" class="pokemon-header">
+        <img src="/src/Images/PokeDex Icon.png" alt="Red Pokedex Icon" class="pokedex-icon">
+      </a>
+      <div class="contact">
+        <a href="contact.html" class="rotom-link">
+          <img src="/src/Images/Rotom Pokedex 2.png" alt="FLoating Rotom that takes you to the contact page if clicked" class="rotom-img">
+        </a>
+        <div class="speech-bubble">
+          <div class="message">Hi there! How can I help you?</div>
+        </div>
+      </div>
     </header>
 
-    <main class="l-main">
-      <section role="search"></section>
+    <main>
+      
+      <div class="searchbox">
+        <input id="pokemonName" type="text" placeholder="Pokemon Name">
+        <select id="pokemonType">
+          <option value="">Types</option>
+          <option value="fire">Fire</option>
+          <option value="water">Water</option>
+          <option value="grass">Grass</option>
+          <option value="normal">Normal</option>
+          <option value="bug">Bug</option>
+          <option value="poison">Poison</option>
+          <option value="ground">Ground</option>
+          <option value="rock">Rock</option>
+          <option value="fairy">Fairy</option>
+          <option value="psychic">Psychic</option>
+          <option value="fighting">Fighting</option>
+          <option value="electric">Electric</option>
+          <option value="ghost">Ghost</option>
+          <option value="dragon">Dragon</option>
+          <option value="dark">Dark</option>
+          <option value="steel">Steel</option>
+        </select>
+        <select id="sortOrder" class="sort-select">
+            <option value="">Sort By Name</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+          </select>
+        <div class="center">
+          <button id="search" type="button">Search</button>
+        </div>
+        <div class="center">
+          <a href="contact.html" class="contact-link">Contact Us</a>
+        </div>
+      </div>
 
-      <article role="doc-introduction">
-        <h2>List</h2>
+      <div class="pokemonBox"></div>
 
-        <p>_REPLACE_INTRODUCTION_</p>
-      </article>
-
-      <section role="list">
-        <div id="js-list-container">_LOADING_INDICATOR_GOES_HERE_</div>
-      </section>
     </main>
 
-    <footer class="l-footer">
-      <small>Created with ❤️ by _REPLACE_</small>
-    </footer>
+
   </body>
 </html>

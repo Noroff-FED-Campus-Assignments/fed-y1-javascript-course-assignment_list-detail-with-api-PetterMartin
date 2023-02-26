@@ -1,30 +1,59 @@
-/*
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L50
-============================================
-*/
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
 
-// TODO: Get DOM elements from the DOM
+  loader.classList.add("loader--hidden");
 
-// TODO: Create event listeners for the form
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild(loader);
+  });
+});
 
-/*
-============================================
-API calls
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L157
-============================================
-*/
+function validateForm() {
+    const name = document.getElementById("name").value;
+    const subject = document.getElementById("subject").value;
+    const email = document.getElementById("email").value;
+    const address = document.getElementById("address").value;
+  
+    let valid = true;
+    if (name === "") {
+      valid = false;
+      alert("Please enter your name.");
+    }
+    if (subject.length < 10) {
+      valid = false;
+      alert("Subject must be at least 10 characters long.");
+    }
+    if (!validateEmail(email)) {
+      valid = false;
+      alert("Please enter a valid email address.");
+    }
+    if (address.length < 25) {
+      valid = false;
+      alert("Address must be at least 25 characters long.");
+    }
+  
+    return valid;
+  }
+  
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  }
+  
+  const form = document.getElementById("myForm");
+  const message = document.getElementById("message");
+  
 
-// TODO: Set up a function to fetch data from the API
-
-/*
-============================================
-Helper functions
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/advanced-form.html#L118
-============================================
-*/
-
-// TODO: Create a function to validate an input field
-
-// TODO: Create a function to create a DOM element
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+  
+    if (validateForm()) {
+      message.textContent = "Thank You For Your Submission! We Will Reply To You Within 14 Days";
+      message.classList.add("success-message");
+      form.reset();
+    }
+  });
+  
+  
+  
+  
