@@ -1,6 +1,10 @@
+const pokemonBox = document.querySelector(".pokemonBox");
+
 document.addEventListener("DOMContentLoaded", function() {
   // Get all the Pokemon and display them on the main page
   getPokemon("");
+
+
 
   // Sort event listener
   document.querySelector("#sortOrder").addEventListener("change", function(event) {
@@ -61,8 +65,6 @@ async function getPokemon(searchTerm) {
       return displayPokemon(pokemon);
     });
 
-    const pokemonBox = document.querySelector(".pokemonBox");
-    pokemonBox.innerHTML = "";
     Promise.all(array).then((results) => {
       if (results.length > 0) {
         pokemonBox.append(...results);
@@ -87,7 +89,7 @@ function lowerCaseName(string) {
 
 function displayPokemon(pokemon) {
   const pokemonElement = document.createElement("div");
-
+  pokemonBox.innerHTML = "";
   pokemonElement.innerHTML = `
     <div>
       <img 

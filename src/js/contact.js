@@ -41,7 +41,7 @@ function validateForm() {
     // Call the validateForm function and check its return value
     if (validateForm()) {
       // If the form is valid, add a message below the submit button
-      message.textContent = "Message Received! We Will Reply To You Within 14 Days";
+      message.textContent = "Thank You For Your Submission! We Will Reply To You Within 14 Days";
       message.classList.add("success-message");
       form.reset();
     }

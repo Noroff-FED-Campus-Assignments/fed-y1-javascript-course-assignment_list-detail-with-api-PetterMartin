@@ -34,12 +34,21 @@
     height: auto;
   }
 
-  .pokemon-header {
-  width: 500px;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
+  .header-container {
+    width: 500px;
+    position: relative;
+    left: 45%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .pokedex-icon {
+    width: 170px;
+    height: 170px;
+    margin-top: 20px;
+  }
   
   .main {
     max-width: 800px;
@@ -274,6 +283,26 @@
   color: rgb(246, 246, 246);
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#pokemonDetails {
+  animation-name: slideIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  position: relative;
+  top: 100%;
+  opacity: 0;
+}
+
 
 
 
@@ -293,7 +322,6 @@
 }
 
 .form-section {
-  background-color: rgb(13, 66, 191);
   padding: 20px;
   max-width: 800px;
   margin: 0 auto;
