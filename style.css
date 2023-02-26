@@ -4,57 +4,143 @@
 
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    background-image: linear-gradient(to right top, #4dcbe2, #3cc4e4, #2bbce6, #20b4e7, #1fabe7, #00a3e9, #009aeb, #0090eb, #0084ed, #0077ee, #0069ec, #175ae9);
-    color: #fff;
-  } 
-  
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
 
-  
-  p {
-    margin-bottom: 0.5rem;
-    font-family: 'Roboto', sans-serif;
-  }
-  
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-image: linear-gradient(to right top, #4dcbe2, #3cc4e4, #2bbce6, #20b4e7, #1fabe7, #00a3e9, #009aeb, #0090eb, #0084ed, #0077ee, #0069ec, #175ae9);
+  color: #fff;
+} 
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 0.5rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+@media (max-width: 576px) {
   img {
-    max-width: 100%;
-    height: auto;
+    max-width: 70%;
   }
+}
 
-  .header-container {
-    width: 500px;
-    position: relative;
-    left: 45%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+@media (min-width: 576px) and (max-width: 768px) {
+  img {
+    max-width: 90%;
   }
-  
-  .pokedex-icon {
-    width: 170px;
-    height: 170px;
-    margin-top: 20px;
-  }
-  
-  .main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
+}
+
+
+.header-container {
+  width: 600px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+}
+
+.pokedex-icon {
+  width: 80px;
+  height: auto;
+  margin-left: 10px;
+}
+
+.contact-link {
+  position: absolute;
+  top: 10px;
+  right: 100px; /* Adjust this value to move the image further to the right */
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.rotom-img {
+  position: fixed;
+  top: 15%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 9999;
+  width: 260px; /* half the width of the actual image */
+  animation: bounce 1s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+  0% { right: 50px; }
+  50% { right: 60px; }
+  100% { right: 50px; }
+}
+
+.rotom-img:hover {
+  animation: bounceLeft 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes bounceLeft {
+  0% { right: 50px; }
+  50% { right: 40px; }
+  100% { right: 50px; }
+}
+
+.speech-bubble {
+  position: fixed;
+  top: 7%;
+  right: 220px; /* Adjust this value to position the bubble */
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+  display: none;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  transform: translateY(-50%);
+  border: 15px solid transparent;
+  border-left-color: #fff;
+}
+
+.message {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #000;
+}
+
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
   
   .searchbox {
     display: flex;
@@ -228,6 +314,7 @@
   margin: 30px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 200px;
 }
 
 
@@ -308,23 +395,17 @@
 
 /* Contact Page */
 
-.c-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.c-header h1 {
-  font-size: 63px;
-  margin-top: 70px;
+.contact-header {
+  font-size: 48px;
+  color: white;
   text-align: center;
-  color: #fff;
 }
 
 .form-section {
   padding: 20px;
   max-width: 800px;
-  margin: 0 auto;
+  margin: auto;
+  margin-bottom: 400px;
 }
 
 .form-label {

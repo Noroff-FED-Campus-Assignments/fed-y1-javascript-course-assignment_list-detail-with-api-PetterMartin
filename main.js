@@ -183,6 +183,37 @@ async function getPokemonByType(type) {
 }
 
 
+// maybe delete 
+const speechBubble = document.querySelector('.speech-bubble');
+const message = speechBubble.querySelector('.message');
+const rotomImg = document.querySelector('.rotom-img');
+
+// Show the speech bubble and set its message
+function showSpeechBubble(msg) {
+  message.textContent = msg;
+  speechBubble.style.display = 'block';
+}
+
+// Hide the speech bubble
+function hideSpeechBubble() {
+  speechBubble.style.display = 'none';
+}
+
+// Show speech bubble on page load
+showSpeechBubble('Click on me if you want to contact us!');
+
+// Attach event listeners to the Rotom image
+rotomImg.addEventListener('mouseenter', function() {
+  showSpeechBubble('Click on me if you want to contact us!');
+});
+
+rotomImg.addEventListener('mouseleave', function() {
+  hideSpeechBubble();
+});
+
+
+
+
   
   
   
