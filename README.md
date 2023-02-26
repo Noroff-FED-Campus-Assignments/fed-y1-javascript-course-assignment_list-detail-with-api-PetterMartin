@@ -7,14 +7,27 @@ This project was bootstrapped with Vite.
 
 ## Resources
 
-- [Design](_LINK_TO_FIGMA_)
-- [Production deploy](_LINK_TO_WEBSITE_)
-- [Deployment CI](_LINK_TO_NETLIFY_VERCEL_DASHBOARD_)
-- [API Docs](_LINK_TO_API_DOCS_)
+- [Design](https://www.figma.com/file/XUCFuqlxp5UBEp1uUU2n1F/PokeDex-Icon?node-id=0%3A1&t=lvFSpI9I0CMrPCLG-0)
+- [Production deploy](https://visionary-zabaione-92271a.netlify.app/)
+- [Deployment CI](?)
+- [API Docs](https://pokeapi.co/)
 
 ## Report
 
-_ADD_YOUR_REPORT_HERE_
+The Javascript code implements a Pokedex that allows users to search for Pokemon by name, type, and sort order.
+
+The first part of the code hides the loader after the page is fully loaded. 
+The second part of the code gets the Pokemon box element and fetches Pokemon data from the PokeAPI. The getPokemon() function gets Pokemon data from the API, filters the data by search term or type, and displays the resulting Pokemon on the page using the displayPokemon() function. The sortPokemon() function sorts the Pokemon displayed on the page by name and toggles the sort order.
+
+The capitalizeFirstLetter() and lowerCaseName() functions are utility functions used to format Pokemon names. The toggleSortOrder() function updates the sort button text based on the sort order. The getPokemonByType() function fetches Pokemon by type and filters the results based on the type and slot.
+
+The Design I made is inspired by the red/blue look of Pokemon and the colors appeals to a younger target audience. Its simple, easy to understand and catches the eye. 
+
+The Header Image is taken from (https://www.pokemon.com/us/pokedex) but the logo next to it I made in Figma. It is the back of a pokedex that the main character uses in the anime. I thought it was fitting and colorful.
+
+The pokedex character on the side that takes you to the contact page I wouldnt necessary use him for that for an actual website but I like the idea of him being a kind of guide to the user that maybe gives informaton about the website as they click through it. The Picture of him I also got from (https://www.pokemon.com/us/pokedex).
+
+
 
 ## Getting Started
 
@@ -130,5 +143,5 @@ Make sure you go through this checklist before submitting your project to Moodle
 
 ## Authors
 
-- _YOURE_NAME_ (@_your_github_username_)
+- Petter Martin (@PetterMartin)
 - Monde Sineke (@S3ak)
