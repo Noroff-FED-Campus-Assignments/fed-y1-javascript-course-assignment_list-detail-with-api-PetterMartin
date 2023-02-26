@@ -227,17 +227,17 @@ img {
 @media screen and (max-width: 600px) {
   .searchbox {
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    margin: 20px;
   }
 
   .searchbox input {
     width: 100%;
-    margin-bottom: 10px;
+    margin: 10px;
   }
 
   .searchbox select {
     width: 100%;
-    margin-bottom: 10px;
+    margin: 10px;
   }
 }
   
@@ -255,6 +255,12 @@ img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    .pokemonBox {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
   }
 
 .details-button {
@@ -278,6 +284,24 @@ img {
 #sortOrder {
     width: 200px;
     margin-left: 8px;
+  }
+
+  .contact-link {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    background-color: #333;
+    padding: 8px 16px;
+    border-radius: 5px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .contact-link {
+      display: none;
+    }
   }
   
   
