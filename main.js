@@ -47,7 +47,7 @@ function toggleSortOrder(order) {
 
 async function getPokemon(searchTerm) {
   try {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=251`);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`);
     const data = await response.json();
 
     const filteredResults = data.results.filter((result) => {
