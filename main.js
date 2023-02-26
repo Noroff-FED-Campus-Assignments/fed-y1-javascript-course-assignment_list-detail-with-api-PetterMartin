@@ -12,7 +12,6 @@ window.addEventListener("load", () => {
 const pokemonBox = document.querySelector(".pokemonBox");
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Get all the Pokemon and display them on the main page
   getPokemon("");
 
 
@@ -146,6 +145,7 @@ inputField.addEventListener("keypress", (event) => {
   }
 });
 
+
 // Type filter event listener
 document.querySelector("#pokemonType").addEventListener("change", function(event) {
   const type = event.target.value.toLowerCase();
@@ -164,7 +164,7 @@ async function getPokemonByType(type) {
     const data = await response.json();
 
     const filteredResults = data.pokemon
-      .filter(pokemon => pokemon.slot === 1) // only include Pokemon with type in slot 1
+      .filter(pokemon => pokemon.slot === 1)
       .map(pokemon => pokemon.pokemon);
 
     let array = filteredResults.map(async (result) => {
@@ -194,7 +194,6 @@ async function getPokemonByType(type) {
 }
 
 
-// maybe delete 
 const speechBubble = document.querySelector('.speech-bubble');
 const message = speechBubble.querySelector('.message');
 const rotomImg = document.querySelector('.rotom-img');
@@ -209,9 +208,6 @@ function showSpeechBubble(msg) {
 function hideSpeechBubble() {
   speechBubble.style.display = 'none';
 }
-
-// Show speech bubble on page load
-showSpeechBubble('Click on me if you want to contact us!');
 
 // Attach event listeners to the Rotom image
 rotomImg.addEventListener('mouseenter', function() {

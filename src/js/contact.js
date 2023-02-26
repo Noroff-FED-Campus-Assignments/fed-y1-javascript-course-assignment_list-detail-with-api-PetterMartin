@@ -43,14 +43,11 @@ function validateForm() {
   const form = document.getElementById("myForm");
   const message = document.getElementById("message");
   
-  // Add an event listener to the form submit event
+
   form.addEventListener("submit", function(event) {
-    // Prevent the form from submitting by default
     event.preventDefault();
   
-    // Call the validateForm function and check its return value
     if (validateForm()) {
-      // If the form is valid, add a message below the submit button
       message.textContent = "Thank You For Your Submission! We Will Reply To You Within 14 Days";
       message.classList.add("success-message");
       form.reset();

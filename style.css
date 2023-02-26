@@ -1,8 +1,3 @@
-/* the props */
-
-
-
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,7 +9,7 @@ body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background-image: linear-gradient(to right top, #4dcbe2, #3cc4e4, #2bbce6, #20b4e7, #1fabe7, #00a3e9, #009aeb, #0090eb, #0084ed, #0077ee, #0069ec, #175ae9);
+  background-color: #2966ea;
   color: #fff;
 } 
 
@@ -27,7 +22,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to right top, #4dcbe2, #3cc4e4, #2bbce6, #20b4e7, #1fabe7, #00a3e9, #009aeb, #0090eb, #0084ed, #0077ee, #0069ec, #175ae9);
   transition: opacity 0.75s, visibility 0.75s;
 }
 
@@ -97,6 +91,18 @@ img {
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 600px) {
+  .header-container {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
 .contact {
   display: flex;
   align-items: center;
@@ -108,24 +114,25 @@ img {
   margin-left: 10px;
 }
 
-.contact-link {
-  position: absolute;
-  top: 10px;
-  right: 100px; /* Adjust this value to move the image further to the right */
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-}
-
 .rotom-img {
   position: fixed;
   top: 15%;
   right: 0;
   transform: translateY(-50%);
   z-index: 9999;
-  width: 260px; /* half the width of the actual image */
+  width: 160px;
   animation: bounce 1s ease-in-out infinite alternate;
+}
+
+@media screen and (max-width: 600px) {
+  .pokedex-icon {
+    width: 50px;
+    margin-left: 5px;
+  }
+
+  .rotom-img {
+    width: 100px;
+  }
 }
 
 @keyframes bounce {
@@ -146,13 +153,13 @@ img {
 
 .speech-bubble {
   position: fixed;
-  top: 7%;
-  right: 220px; /* Adjust this value to position the bubble */
+  top: 9%;
+  right: 160px;
   transform: translateY(-50%);
   background-color: #ffffff;
   border: 1px solid #000;
   border-radius: 10px;
-  padding: 10px;
+  padding: 6px;
   display: none;
 }
 
@@ -160,7 +167,7 @@ img {
   content: "";
   position: absolute;
   top: 50%;
-  right: -15px;
+  right: -22px;
   transform: translateY(-50%);
   border: 15px solid transparent;
   border-left-color: #fff;
@@ -168,7 +175,7 @@ img {
 
 .message {
   font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   color: #000;
 }
@@ -179,14 +186,14 @@ img {
   padding: 2rem;
 }
   
-  .searchbox {
+.searchbox {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 40px;
   }
   
-  .searchbox input {
+.searchbox input {
     width: 200px;
     padding: 0.5rem;
     font-size: 1.2rem;
@@ -195,7 +202,7 @@ img {
     margin-right: 0.5rem;
   }
   
-  .searchbox select {
+.searchbox select {
     width: 120px;
     font-size: 1.2rem;
     padding: 0.5rem;
@@ -207,24 +214,42 @@ img {
     padding-right: 2rem;
     cursor: pointer;
   }
+
+
+@media screen and (max-width: 600px) {
+  .searchbox {
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .searchbox input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .searchbox select {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
   
-  .center {
+.center {
     display: flex;
     align-items: center;
   }
   
-  .center button {
+.center button {
     margin-left: 0.5rem;
     display: none;
   }
   
-  .pokemonBox {
+.pokemonBox {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
   }
 
-  .details-button {
+.details-button {
     display: inline-block;
     padding: 5px 8px;
     text-align: center;
@@ -237,12 +262,12 @@ img {
     font-family: 'Pokemon Solid', sans-serif;
   }
   
-  .details-button:hover {
+.details-button:hover {
     -webkit-text-stroke: 2.2px #ffd117;
     color: #1c51d5;
   }
 
-  #sortOrder {
+#sortOrder {
     width: 200px;
     margin-left: 8px;
   }

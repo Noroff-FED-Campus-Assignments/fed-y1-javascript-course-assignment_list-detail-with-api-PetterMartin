@@ -27,7 +27,6 @@ async function getPokemonDetails() {
     }
     const pokemon = await response.json();
 
-    // Set the title of the page with the name of the current Pokemon
     document.title = `${capitalizeFirstLetter(pokemon.name)} - Pokemon Details`;
 
     const pokemonDetailsHTML = document.createElement("div");
