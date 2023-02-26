@@ -1,3 +1,13 @@
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+
+  loader.classList.add("loader--hidden");
+
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild(loader);
+  });
+});
+
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const pokemonName = params.get("name");

@@ -1,3 +1,13 @@
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+
+  loader.classList.add("loader--hidden");
+
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild(loader);
+  });
+});
+
 function validateForm() {
     const name = document.getElementById("name").value;
     const subject = document.getElementById("subject").value;

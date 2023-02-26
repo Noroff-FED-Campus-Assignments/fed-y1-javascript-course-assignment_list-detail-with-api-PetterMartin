@@ -18,6 +18,43 @@ body {
   color: #fff;
 } 
 
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to right top, #4dcbe2, #3cc4e4, #2bbce6, #20b4e7, #1fabe7, #00a3e9, #009aeb, #0090eb, #0084ed, #0077ee, #0069ec, #175ae9);
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddddd;
+  border-top-color: #DD222B;
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
 h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
