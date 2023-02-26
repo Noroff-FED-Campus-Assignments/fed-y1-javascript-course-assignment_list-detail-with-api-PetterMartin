@@ -434,6 +434,29 @@ img {
   margin-bottom: 40px;
 }
 
+@media screen and (max-width: 600px) {
+  .pokemon-container {
+    max-width: 340px;
+    margin: 20px;
+    margin-bottom: 100px;
+  }
+
+  .pokemon-details {
+    width: 70%;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+
+  .pokemon-image {
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .pokemon-name {
+    font-size: 2rem;
+  }
+}
+
 .stats-container {
   display: flex;
   flex-direction: column;
@@ -464,6 +487,21 @@ img {
   letter-spacing: 1px;
   color: rgb(246, 246, 246);
 }
+
+@media screen and (max-width: 600px) {
+  .stats-container {
+    font-size: 14px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+}
+
 
 @keyframes slideIn {
   from {
